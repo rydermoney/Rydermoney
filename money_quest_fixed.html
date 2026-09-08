@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Money Quest 💰</title>
+<style>
+:root{--blue:#2388ff;--green:#16b866;--red:#f33f5d;--purple:#7657ff;--ink:#14213d;--muted:#71809d;--line:#e7edf7}
+*{box-sizing:border-box}body{margin:0;background:#fff;color:var(--ink);font-family:ui-rounded,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input,select{font:inherit}button{cursor:pointer}.app{min-height:100vh;display:flex}.side{width:220px;border-right:1px solid var(--line);padding:25px 16px;position:sticky;top:0;height:100vh;background:#fff}.brand{font-size:27px;font-weight:1000;line-height:.9;margin:5px 8px 30px}.brand span{color:#18aaf7}.nav button{display:block;width:100%;text-align:left;background:none;border:0;border-radius:15px;padding:13px 14px;margin:5px 0;color:#263653;font-weight:800}.nav button.active,.nav button:hover{background:#edf6ff;color:#1478e9}.main{width:100%;max-width:1150px;margin:auto;padding:25px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.profile{display:flex;gap:12px;align-items:center}.avatar{width:48px;height:48px;border-radius:16px;background:#202d75;color:#fff;display:grid;place-items:center;font-size:25px;box-shadow:0 5px 12px #d9e1ff}.profile b{font-size:20px}.small{font-size:12px;color:var(--muted)}.level{min-width:220px}.leveltop{display:flex;justify-content:space-between;font-weight:900;font-size:13px}.xpbar,.goalbar{height:9px;background:#e4eaf3;border-radius:20px;overflow:hidden;margin-top:7px}.xpbar i,.goalbar i{display:block;height:100%;background:linear-gradient(90deg,#7c5cff,#2388ff);border-radius:20px;transition:.4s}.hero{background:linear-gradient(135deg,#1475ff,#3d9cff);color:#fff;border-radius:26px;padding:25px;box-shadow:0 14px 35px #cfe4ff;margin-bottom:18px;position:relative;overflow:hidden}.hero:after{content:"👑";position:absolute;right:30px;top:16px;font-size:54px;transform:rotate(12deg)}.hero .label{font-weight:800;opacity:.9}.balance{font-size:50px;font-weight:1000;letter-spacing:-2px;margin:2px 0 15px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{background:#fff;color:var(--ink);border-radius:17px;padding:13px 15px}.stat span{font-size:12px;color:var(--muted);font-weight:800}.stat b{display:block;font-size:20px;margin-top:3px}.green{color:var(--green)!important}.red{color:var(--red)!important}.purple{color:var(--purple)!important}.actions{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px}.action{border-radius:23px;padding:20px;border:2px solid;box-shadow:0 8px 20px #e8edf5}.action.earn{border-color:#38cf8b;background:#f2fff8}.action.spend{border-color:#ff7890;background:#fff4f6}.action h2{margin:0 0 4px;font-size:20px}.action p{margin:0 0 13px;color:var(--muted);font-size:13px}.entry{display:flex;gap:8px}.entry input{min-width:0;flex:1;border:1px solid var(--line);border-radius:14px;padding:13px;background:#fff;outline:none}.entry input:focus{border-color:#2388ff;box-shadow:0 0 0 3px #e5f1ff}.quick{display:flex;gap:6px;margin:9px 0}.quick button{border:0;border-radius:12px;padding:7px 9px;font-weight:900;font-size:12px;background:#e1f9ec;color:#078a4b}.spend .quick button{background:#ffe1e7;color:#d3294a}.bigbtn{width:100%;border:0;border-radius:14px;padding:13px;color:#fff;font-weight:950;font-size:16px}.earn .bigbtn{background:#13b665}.spend .bigbtn{background:#f23859}.grid{display:grid;grid-template-columns:1fr 310px;gap:18px}.card{border:1px solid var(--line);border-radius:23px;padding:20px;background:#fff;box-shadow:0 8px 25px #edf1f7}.cardhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.card h2{margin:0;font-size:19px}.tx{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #eef2f7}.tx:last-child{border:0}.txicon{width:42px;height:42px;border-radius:13px;background:#f1f5fb;display:grid;place-items:center;font-size:21px}.txinfo{flex:1;min-width:0}.txname{font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.date{font-size:11px;color:var(--muted)}.txmoney{font-weight:1000}.del{border:0;background:none;color:#b6bfd0;font-size:17px;padding:5px}.del:hover{color:var(--red)}.goal{margin-bottom:18px}.goalamount{display:flex;justify-content:space-between;font-weight:900}.goalbar i{background:linear-gradient(90deg,#16b866,#47d991)}.goalbtn{width:100%;border:0;background:#1688ef;color:#fff;padding:12px;border-radius:13px;font-weight:900;margin-top:12px}.achievement{display:flex;gap:10px;align-items:center;padding:10px 0}.badge{width:38px;height:38px;border-radius:12px;background:#fff3c4;display:grid;place-items:center}.achievement small{color:var(--muted)}.empty{text-align:center;padding:30px 5px;color:var(--muted)}.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);background:#14213d;color:#fff;padding:12px 18px;border-radius:14px;font-weight:900;opacity:0;pointer-events:none;transition:.25s;box-shadow:0 8px 25px #ccd4e0;z-index:10}.toast.show{opacity:1;transform:translate(-50%,0)}@media(max-width:850px){.side{display:none}.main{padding:16px}.grid{grid-template-columns:1fr}.level{min-width:150px}.top{gap:10px}.actions{grid-template-columns:1fr}}@media(max-width:520px){.top{align-items:flex-start}.level{display:none}.balance{font-size:43px}.stats{grid-template-columns:1fr}.hero:after{font-size:38px}.entry{flex-wrap:wrap}.entry input{width:100%;flex-basis:100%}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+  <div class="brand">💸 Money<br><span>Quest</span></div>
+  <div class="nav">
+    <button class="active">🏠 &nbsp; Home</button>
+    <button onclick="document.getElementById('earnAmount').focus()">➕ &nbsp; Add Money</button>
+    <button onclick="document.getElementById('spendAmount').focus()">➖ &nbsp; Make a Purchase</button>
+    <button onclick="document.getElementById('history').scrollIntoView({behavior:'smooth'})">📜 &nbsp; History</button>
+    <button onclick="setGoal()">🎯 &nbsp; Goals</button>
+    <button onclick="document.getElementById('achievements').scrollIntoView({behavior:'smooth'})">🏆 &nbsp; Achievements</button>
+  </div>
+</aside>
+<main class="main">
+  <div class="top">
+    <div class="profile"><div class="avatar">👑</div><div><b>Money Master</b><div class="small">Keep earning. Keep growing. 🚀</div></div></div>
+    <div class="level"><div class="leveltop"><span>⭐ Level <span id="level">1</span></span><span id="xpText">0 / 100 XP</span></div><div class="xpbar"><i id="xpBar"></i></div></div>
+  </div>
+
+  <section class="hero">
+    <div class="label">CURRENT BALANCE</div><div class="balance" id="balance">$0.00</div>
+    <div class="stats">
+      <div class="stat"><span>💰 TOTAL EARNED</span><b class="green" id="earned">$0.00</b></div>
+      <div class="stat"><span>🛒 TOTAL SPENT</span><b class="red" id="spent">$0.00</b></div>
+      <div class="stat"><span>📋 TRANSACTIONS</span><b class="purple" id="count">0</b></div>
+    </div>
+  </section>
+
+  <section class="actions">
+    <div class="action earn">
+      <h2>💰 Add Money</h2><p>Get that cash! Add money you earned.</p>
+      <div class="entry"><input id="earnAmount" type="number" inputmode="decimal" min="0" step="0.01" placeholder="$ 0.00"><input id="earnName" placeholder="What did you earn from?"></div>
+      <div class="quick"><button onclick="quick('earn',5)">+$5</button><button onclick="quick('earn',10)">+$10</button><button onclick="quick('earn',20)">+$20</button><button onclick="quick('earn',50)">+$50</button></div>
+      <button class="bigbtn" onclick="addMoney()">＋ Add Money</button>
+    </div>
+    <div class="action spend">
+      <h2>🛒 Make a Purchase</h2><p>Buy something? Take it out of your balance.</p>
+      <div class="entry"><input id="spendAmount" type="number" inputmode="decimal" min="0" step="0.01" placeholder="$ 0.00"><input id="spendName" placeholder="What did you buy?"></div>
+      <div class="quick"><button onclick="quick('spend',5)">−$5</button><button onclick="quick('spend',10)">−$10</button><button onclick="quick('spend',20)">−$20</button><button onclick="quick('spend',50)">−$50</button></div>
+      <button class="bigbtn" onclick="spendMoney()">− Subtract Money</button>
+    </div>
+  </section>
+
+  <div class="grid">
+    <section class="card" id="history"><div class="cardhead"><h2>📜 Transaction History</h2><button class="del" onclick="clearAll()" title="Clear all">🗑️</button></div><div id="list"><div class="empty">No transactions yet.<br>Make your first move! 🚀</div></div></section>
+    <aside>
+      <section class="card goal">
+        <div class="cardhead"><h2>🎯 Goal</h2><button class="del" onclick="setGoal()">✏️</button></div>
+        <b id="goalName">Save $100 for something cool!</b>
+        <div class="goalamount"><span id="goalSaved">$0.00</span><span id="goalTarget">$100.00</span></div>
+        <div class="goalbar"><i id="goalBar"></i></div>
+        <button class="goalbtn" onclick="setGoal()">Edit Goal</button>
+      </section>
+      <section class="card" id="achievements">
+        <h2>🏆 Achievements</h2>
+        <div class="achievement"><div class="badge">💵</div><div><b>First Earning</b><br><small>+50 XP</small></div><span id="a1">⬜</span></div>
+        <div class="achievement"><div class="badge">🛒</div><div><b>First Purchase</b><br><small>+50 XP</small></div><span id="a2">⬜</span></div>
+        <div class="achievement"><div class="badge">💰</div><div><b>$100 Earned</b><br><small>+100 XP</small></div><span id="a3">⬜</span></div>
+        <div class="achievement"><div class="badge">👑</div><div><b>Money Master</b><br><small>+250 XP</small></div><span id="a4">⬜</span></div>
+      </section>
+    </aside>
+  </div>
+</main>
+</div><div class="toast" id="toast"></div>
+<script>
+const KEY='moneyQuest_v2';
+let data=JSON.parse(localStorage.getItem(KEY)||'null')||{tx:[],goal:{name:'Save $100 for something cool!',target:100}};
+const $=id=>document.getElementById(id), money=n=>'$'+Number(n).toFixed(2);
+function save(){localStorage.setItem(KEY,JSON.stringify(data));render()}
+function toast(t){$('toast').textContent=t;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),1800)}
+function addMoney(){
+ const amount=Number($('earnAmount').value),name=$('earnName').value.trim()||'Money earned';
+ if(!(amount>0))return toast('💰 Enter an amount first!');
+ data.tx.unshift({id:Date.now(),amount,type:'earn',name,date:new Date().toLocaleString()});
+ $('earnAmount').value='';$('earnName').value='';save();toast('🎉 Money added! Nice work!');
+}
+function spendMoney(){
+ const amount=Number($('spendAmount').value),name=$('spendName').value.trim()||'Purchase';
+ const balance=data.tx.reduce((s,t)=>s+(t.type==='earn'?t.amount:-t.amount),0);
+ if(!(amount>0))return toast('🛒 Enter a purchase amount!');
+ if(amount>balance)return toast('😬 You don’t have enough money!');
+ data.tx.unshift({id:Date.now(),amount,type:'spend',name,date:new Date().toLocaleString()});
+ $('spendAmount').value='';$('spendName').value='';save();toast('🛒 Purchase added!');
+}
+function quick(type,n){$(type==='earn'?'earnAmount':'spendAmount').value=n;$(type==='earn'?'earnAmount':'spendAmount').focus()}
+function del(id){data.tx=data.tx.filter(t=>t.id!==id);save();toast('🗑️ Transaction deleted')}
+function clearAll(){if(data.tx.length&&confirm('Clear all transactions? This cannot be undone.')){data.tx=[];save();toast('🧹 History cleared')}}
+function setGoal(){let n=prompt('What are you saving for?',data.goal.name);if(n===null)return;let t=prompt('How much do you need?',data.goal.target);let num=Number(t);if(!(num>0))return toast('🎯 Enter a valid goal amount.');data.goal={name:n||'My savings goal',target:num};save();toast('🎯 Goal updated!')}
+function render(){
+ let earned=data.tx.filter(t=>t.type==='earn').reduce((s,t)=>s+t.amount,0),spent=data.tx.filter(t=>t.type==='spend').reduce((s,t)=>s+t.amount,0),bal=earned-spent;
+ $('balance').textContent=money(bal);$('earned').textContent=money(earned);$('spent').textContent=money(spent);$('count').textContent=data.tx.length;
+ let xp=Math.floor(earned*2)+data.tx.length*10+(earned>=100?100:0)+(data.tx.some(t=>t.type==='earn')?50:0)+(data.tx.some(t=>t.type==='spend')?50:0);
+ let level=Math.floor(xp/100)+1,within=xp%100;$('level').textContent=level;$('xpText').textContent=within+' / 100 XP';$('xpBar').style.width=within+'%';
+ $('goalName').textContent=data.goal.name;$('goalTarget').textContent=money(data.goal.target);$('goalSaved').textContent=money(Math.max(0,Math.min(bal,data.goal.target)));$('goalBar').style.width=Math.max(0,Math.min(100,bal/data.goal.target*100))+'%';
+ $('a1').textContent=data.tx.some(t=>t.type==='earn')?'✅':'⬜';$('a2').textContent=data.tx.some(t=>t.type==='spend')?'✅':'⬜';$('a3').textContent=earned>=100?'✅':'⬜';$('a4').textContent=level>=5?'✅':'⬜';
+ $('list').innerHTML=data.tx.length?data.tx.slice(0,30).map(t=>`<div class="tx"><div class="txicon">${t.type==='earn'?'💵':'🛒'}</div><div class="txinfo"><div class="txname">${escapeHtml(t.name)}</div><div class="date">${escapeHtml(t.date)}</div></div><div class="txmoney ${t.type==='earn'?'green':'red'}">${t.type==='earn'?'+':'−'}${money(t.amount)}</div><button class="del" onclick="del(${t.id})">🗑️</button></div>`).join(''):'<div class="empty">No transactions yet.<br>Make your first move! 🚀</div>';
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
+$('earnAmount').addEventListener('keydown',e=>{if(e.key==='Enter')addMoney()});$('earnName').addEventListener('keydown',e=>{if(e.key==='Enter')addMoney()});
+$('spendAmount').addEventListener('keydown',e=>{if(e.key==='Enter')spendMoney()});$('spendName').addEventListener('keydown',e=>{if(e.key==='Enter')spendMoney()});
+render();
+</script>
+</body></html>
